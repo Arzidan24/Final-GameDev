@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 421209438}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24216,4 +24216,5 @@ MonoBehaviour:
   followSpeed: 2
   yOffset: 4.3
   xOffset: 10
+  zOffset: -15
   target: {fileID: 204812824}
