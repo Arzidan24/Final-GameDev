@@ -6,11 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
    private Rigidbody2D rb;
    private bool isJumping = false;
+   private Animator anim;
 
     // Start is called before the first frame update
    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,18 @@ public class PlayerMovement : MonoBehaviour
          isJumping = true;
          rb.freezeRotation = true;
       }
+       if (dirX > 0f)
+        {
+            anim.SetBool("walk", true);
+        }
+       if (dirX < 0f)
+        {
+            anim.SetBool("walk", true);
+        }
+       if (dirX == 0f)
+        {
+            anim.SetBool("walk", false);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
    {
