@@ -407,6 +407,29 @@ MonoBehaviour:
   m_Solvers: []
   m_Weight: 1
   m_SolverEditorData: []
+--- !u!114 &389598089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389598081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1212329facae0bb428286817ab136839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTimeBtwAtk: 0
+  attackPos: {fileID: 0}
+  whatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 0
+  attackRange: 0
+--- !u!4 &389598090 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 37684ae3344a4a0448404c72c369c064, type: 3}
+  m_PrefabInstance: {fileID: 2135555356}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &421209434
 GameObject:
   m_ObjectHideFlags: 0
@@ -24081,7 +24104,7 @@ MonoBehaviour:
   yOffset: 4.3
   xOffset: 10
   zOffset: -15
-  target: {fileID: 0}
+  target: {fileID: 389598090}
 --- !u!1001 &2135555356
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -26,7 +26,12 @@ public class PlayerMovement : MonoBehaviour
          rb.velocity = new Vector2(rb.velocity.x, 14f);
          isJumping = true;
          rb.freezeRotation = true;
+         anim.SetBool("jump", true);
       }
+       if (isJumping == false)
+        {
+            anim.SetBool("jump", false);
+        }
        if (dirX > 0f)
         {
             anim.SetBool("walk", true);
