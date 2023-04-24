@@ -30,6 +30,6 @@ public class MeleePlayer : MonoBehaviour
                 //give dmg to enemy
                 }
             }
-        }
     }
 }
+
