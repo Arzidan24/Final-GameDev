@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
    private Rigidbody2D rb;
    private bool isJumping = false;
    private Animator anim;
+   [SerializeField] private float movespeed = 4f;
+   [SerializeField] private float sprintspeed = 16f;
+   [SerializeField] private float jumpforce = 14f;
 
     // Start is called before the first frame update
    private void Start()
@@ -19,14 +22,27 @@ public class PlayerMovement : MonoBehaviour
    private void Update()
     {
       float dirX = Input.GetAxisRaw("Horizontal");
-      rb.velocity = new Vector2(dirX * 4f, rb.velocity.y);
+      bool isSprinting = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
+      if (isSprinting)
+      {
+         rb.velocity = new Vector2(dirX * sprintspeed, rb.velocity.y);
+      }
+      else
+      {
+         rb.velocity = new Vector2(dirX * movespeed, rb.velocity.y);
+      }
+      /*rb.velocity = new Vector2(dirX * movespeed, rb.velocity.y);*/
 
        if (Input.GetButtonDown("Jump") && !isJumping)
       {
-         rb.velocity = new Vector2(rb.velocity.x, 14f);
+         rb.velocity = new Vector2(rb.velocity.x, jumpforce);
          isJumping = true;
          rb.freezeRotation = true;
          anim.SetBool("jump", true);
+      }
+      if (Input.GetButtonDown("Fire1")) {
+        anim.SetBool("attack", true);
       }
        if (isJumping == false)
         {
@@ -35,10 +51,12 @@ public class PlayerMovement : MonoBehaviour
        if (dirX > 0f)
         {
             anim.SetBool("walk", true);
+            transform.rotation = Quaternion.Euler(0f, -180f, 0f);
         }
        if (dirX < 0f)
         {
             anim.SetBool("walk", true);
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
        if (dirX == 0f)
         {
@@ -52,4 +70,8 @@ public class PlayerMovement : MonoBehaviour
          isJumping = false;
       }
    }
+   public void SetAttackBoolToFalse()
+    {
+        anim.SetBool("attack", false);
+    }
 }
