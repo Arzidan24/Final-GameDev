@@ -7,15 +7,18 @@ public class PlayerMovement : MonoBehaviour
    private Rigidbody2D rb;
    private bool isJumping = false;
    private Animator anim;
+   private BoxCollider2D coll;
    [SerializeField] private float movespeed = 4f;
    [SerializeField] private float sprintspeed = 16f;
    [SerializeField] private float jumpforce = 14f;
+   [SerializeField] LayerMask jumpableGround;
 
     // Start is called before the first frame update
    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        coll = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -34,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
       }
       /*rb.velocity = new Vector2(dirX * movespeed, rb.velocity.y);*/
 
-       if (Input.GetButtonDown("Jump") && !isJumping)
+       if (Input.GetButtonDown("Jump") && Isgrounded())
       {
          rb.velocity = new Vector2(rb.velocity.x, jumpforce);
          isJumping = true;
@@ -64,14 +67,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
-   {
-      if (collision.gameObject.CompareTag("Ground"))
-      {
-         isJumping = false;
-      }
-   }
+{
+    if ((jumpableGround & (1 << collision.gameObject.layer)) != 0) // check if the collided object is on the Ground layer
+    {
+        isJumping = false;
+    }
+}
    public void SetAttackBoolToFalse()
     {
         anim.SetBool("attack", false);
+    }
+
+    private bool Isgrounded()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
 }
