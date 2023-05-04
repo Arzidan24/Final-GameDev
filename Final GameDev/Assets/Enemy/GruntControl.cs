@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GruntControl : MonoBehaviour
 {
-    public GameObject pointA, pointB;
+    public GameObject leftpoint, rightpoint;
     public float speed;
     public float switchDistance;
     private Rigidbody2D rb;
@@ -17,7 +17,7 @@ public class GruntControl : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        currentpoint = pointB.transform;
+        currentpoint = rightpoint.transform;
     }
 
     // Update is called once per frame
@@ -33,16 +33,16 @@ public class GruntControl : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
         Debug.Log(direction.magnitude);
-        Debug.Log(currentpoint == pointB.transform);
-        if(direction.magnitude < switchDistance && currentpoint == pointB.transform && !switched)
+        Debug.Log(currentpoint == rightpoint.transform);
+        if(direction.magnitude < switchDistance && currentpoint == rightpoint.transform && !switched)
         {
             switched = true;
-            currentpoint = pointA.transform;
+            currentpoint = leftpoint.transform;
         }
-        if(direction.magnitude < switchDistance && currentpoint == pointA.transform && !switched)
+        if(direction.magnitude < switchDistance && currentpoint == leftpoint.transform && !switched)
         {
             switched = true;
-            currentpoint = pointB.transform;
+            currentpoint = rightpoint.transform;
         }
         if(direction.magnitude > switchDistance)
         {
