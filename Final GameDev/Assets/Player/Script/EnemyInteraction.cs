@@ -13,5 +13,10 @@ public class EnemyInteraction : MonoBehaviour
         health = health - 2;
         HealthText.text = "Health: " + health;
     }
+    if (collison.gameObject.CompareTag("Weapon"))
+    {
+        health = health - 2;
+        HealthText.text = "Health: " + health;
+    }
 }
 }

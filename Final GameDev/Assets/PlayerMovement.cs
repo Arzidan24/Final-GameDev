@@ -13,6 +13,13 @@ public class PlayerMovement : MonoBehaviour
    [SerializeField] private float jumpforce = 14f;
    [SerializeField] LayerMask jumpableGround;
 
+   [SerializeField] Transform attackpoint;
+
+   public LayerMask enemyLayers;
+
+   public float attackrange = 0.5f;
+   public int attackdamage = 10;
+
     // Start is called before the first frame update
    private void Start()
     {
@@ -45,7 +52,8 @@ public class PlayerMovement : MonoBehaviour
          anim.SetBool("jump", true);
       }
       if (Input.GetButtonDown("Fire1")) {
-        anim.SetBool("attack", true);
+        anim.SetTrigger("attack");
+        attack();
       }
        if (isJumping == false)
         {
@@ -81,5 +89,21 @@ public class PlayerMovement : MonoBehaviour
     private bool Isgrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+    }
+
+    public void attack() {
+       Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackpoint.position, attackrange, enemyLayers);
+
+       foreach(Collider2D enemy in hitenemies)
+       {
+        enemy.GetComponent<GruntControl>().takedamage(attackdamage);
+       }
+    }
+
+    void OnDrawGizmosSelected() {
+        if (attackpoint == null) 
+            return;
+
+       Gizmos.DrawWireSphere(attackpoint.position, attackrange);
     }
 }
