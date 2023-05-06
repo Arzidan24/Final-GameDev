@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollowPlayer : MonoBehaviour
 {
     public float followSpeed = 2f;
-    public float yOffset = 4.3f; //if we want to follow the player height while jumping, unused
+    public float yOffset = 5f; //if we want to follow the player height while jumping, unused
     public float xOffset = 10f;
     public float zOffset = -15f;
     public Transform target;
