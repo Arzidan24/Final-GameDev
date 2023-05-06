@@ -7114,6 +7114,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1508662067}
     m_Modifications:
+    - target: {fileID: 1256582536165604863, guid: 38f418b71dede45b6903fd7a74ac15aa, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256582536165604863, guid: 38f418b71dede45b6903fd7a74ac15aa, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1870813711
+      objectReference: {fileID: 0}
     - target: {fileID: 3043047233231422152, guid: 38f418b71dede45b6903fd7a74ac15aa, type: 3}
       propertyPath: m_Name
       value: Torch
@@ -8290,7 +8298,37 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 186.61313, y: 1.4739337, z: 0}
+    - position: {x: 178.77884, y: -4.005368, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 182.85944, y: -2.8317654, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 181.2077, y: -5.992614, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 181.83224, y: -9.748245, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -8430,5 +8468,5 @@ SpriteShapeRenderer:
   - {fileID: -6551456632857933372, guid: 27aab1fb267c74b58bcbbe0cae5769a5, type: 3}
   - {fileID: -4970410492042351176, guid: 27aab1fb267c74b58bcbbe0cae5769a5, type: 3}
   m_LocalAABB:
-    m_Center: {x: 91.56241, y: -4.0063257, z: 0}
-    m_Extent: {x: 96.30889, y: 10.29907, z: 0}
+    m_Center: {x: 89.69702, y: -4.0063257, z: 0}
+    m_Extent: {x: 94.443504, y: 10.29907, z: 0}
