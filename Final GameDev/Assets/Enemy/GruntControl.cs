@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class GruntControl : MonoBehaviour
 {
     public GameObject leftpoint, rightpoint;
     public int maxhealth;
-    int currenthealth;
+    public int currenthealth;
     public float speed;
     public float switchDistance;
     public float detectionDistance = 5f; // added detection distance
@@ -20,6 +20,12 @@ public class GruntControl : MonoBehaviour
     public float attackrange = 1.5f;
     public int attackdamage = 10;
 
+    public Slider slider;
+    public Gradient gradient;
+    public Image fill;
+
+    public Canvas canvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +33,9 @@ public class GruntControl : MonoBehaviour
         anim = GetComponent<Animator>();
         currentpoint = rightpoint.transform;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // added player transform
+        slider.maxValue = maxhealth;
+        slider.value = maxhealth;
+        fill.color =  gradient.Evaluate(1f);
     }
     //Update is called once per frame
     void Update()
@@ -98,8 +107,10 @@ public class GruntControl : MonoBehaviour
         Debug.Log("Hit!");
         currenthealth -= damage;
         Debug.Log(currenthealth);
+        Sethealth();
         if (currenthealth <= 0) {
              Destroy(gameObject, 0f);
+             Destroy(canvas, 0f);
         }
     }
 
@@ -112,6 +123,10 @@ public class GruntControl : MonoBehaviour
         enemy.GetComponent<EnemyInteraction>().takedamage(attackdamage);
         }
        }
+    }
+    public void Sethealth() {
+        slider.value = currenthealth;
+        fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 }
 

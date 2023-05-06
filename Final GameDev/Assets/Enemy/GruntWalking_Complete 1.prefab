@@ -201,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 0d19f95f9d64b57439fec5d666101a78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.061772708
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 0d19f95f9d64b57439fec5d666101a78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -258,7 +258,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -325,6 +325,7 @@ MonoBehaviour:
   leftpoint: {fileID: 1642725675809809279}
   rightpoint: {fileID: 1642725674552564329}
   maxhealth: 20
+  currenthealth: 0
   speed: 3
   switchDistance: 4
   detectionDistance: 5
