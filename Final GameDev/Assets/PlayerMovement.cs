@@ -99,10 +99,9 @@ public class PlayerMovement : MonoBehaviour
         if(enemy.GetComponent<GruntControl>()){
         enemy.GetComponent<GruntControl>().takedamage(attackdamage);
         }
-        /*else{
-            Debug.Log("Enemy Script Worked");
-           enemy.GetComponent<Enemy>().takedamage(attackdamage); 
-        }*/
+        else{
+            enemy.GetComponent<EliteControl>().takedamage(attackdamage);
+        }
        }
     }
 

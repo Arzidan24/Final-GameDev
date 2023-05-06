@@ -19,7 +19,9 @@ public class CameraFollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPos = new Vector3(target.position.x + xOffset, 3f , zOffset);
+        Vector3 newPos = new Vector3(target.position.x + xOffset, yOffset , zOffset);
         transform.position = Vector3.Slerp(transform.position,newPos,followSpeed*Time.deltaTime);
+
+        
     }
 }
