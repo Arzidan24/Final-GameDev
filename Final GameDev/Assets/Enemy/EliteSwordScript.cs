@@ -22,7 +22,7 @@ public class EliteSwordScript : MonoBehaviour
         transform.rotation = Quaternion.Euler(0,0,rot + 180);
         } else {
             float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0,0,rot + 180);
+            transform.rotation = Quaternion.Euler(0,0,rot);
         }
     }
 

@@ -64,11 +64,7 @@ public class EliteControl : MonoBehaviour
         }
 
         // if within attack range, play attack animation
-        if (distanceToPlayer <= 1.5f)
-        {
-            rb.velocity = Vector2.zero;
-            anim.SetTrigger("Attack");
-        }else if(distanceToPlayer <= 10f){
+        if(distanceToPlayer <= 10f){
             timer += Time.deltaTime;
             if(timer > 3)
             {

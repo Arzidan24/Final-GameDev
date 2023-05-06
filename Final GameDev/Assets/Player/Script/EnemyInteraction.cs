@@ -24,11 +24,19 @@ public class EnemyInteraction : MonoBehaviour
         currenthealth = currenthealth - 2;
         HealthText.text = "Health: " + currenthealth;
     }
-    if (collison.gameObject.CompareTag("Weapon"))
+    else if(collison.gameObject.CompareTag("Weapon"))
     {
         currenthealth = currenthealth - 2;
         HealthText.text = "Health: " + currenthealth;
+    } else if (collison.gameObject.CompareTag("HealthPotion")){
+        currenthealth = currenthealth + 15;
+        if(currenthealth > 100) {
+            currenthealth = 100;
+        }
+        Sethealth();
+        Destroy(collison.gameObject, 0f);
     }
+
 }
     public void takedamage(int damage) {
         Debug.Log("Hit!");
