@@ -39,7 +39,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - foreground
   m_SortingLayers:
   - name: Background
     uniqueID: 2424153585
