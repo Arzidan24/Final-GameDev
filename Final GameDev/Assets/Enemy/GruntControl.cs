@@ -128,6 +128,13 @@ public class GruntControl : MonoBehaviour
         slider.value = currenthealth;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
+
+    void OnDrawGizmosSelected() {
+        if (attackpoint == null) 
+            return;
+
+       Gizmos.DrawWireSphere(attackpoint.position, attackrange);
+    }
 }
 
 
