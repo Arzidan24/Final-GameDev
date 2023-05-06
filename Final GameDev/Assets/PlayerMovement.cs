@@ -96,7 +96,13 @@ public class PlayerMovement : MonoBehaviour
 
        foreach(Collider2D enemy in hitenemies)
        {
+        if(enemy.GetComponent<GruntControl>()){
         enemy.GetComponent<GruntControl>().takedamage(attackdamage);
+        }
+        /*else{
+            Debug.Log("Enemy Script Worked");
+           enemy.GetComponent<Enemy>().takedamage(attackdamage); 
+        }*/
        }
     }
 
