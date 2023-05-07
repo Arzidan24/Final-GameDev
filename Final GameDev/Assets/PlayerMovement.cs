@@ -83,6 +83,9 @@ public class PlayerMovement : MonoBehaviour
             if(!Input.GetButtonDown("Jump") && !Isgrounded()){
                 walk.Play();
             }
+            else{
+                walk.Stop();
+            }
             anim.SetBool("walk", false);
         }
     }

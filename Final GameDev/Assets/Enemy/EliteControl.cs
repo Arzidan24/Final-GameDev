@@ -137,6 +137,7 @@ public class EliteControl : MonoBehaviour
        foreach(Collider2D enemy in hitenemies)
        {
         if(enemy.GetComponent<EnemyInteraction>()){
+        swordHit.Play();
         enemy.GetComponent<EnemyInteraction>().takedamage(attackdamage);
         }
        }
