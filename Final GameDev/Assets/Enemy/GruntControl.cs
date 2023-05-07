@@ -26,6 +26,7 @@ public class GruntControl : MonoBehaviour
     public Image fill;
     public AudioSource Gruntatk;
     public AudioSource Grunthit;
+    public AudioSource death;
 
     public Canvas canvas;
 
@@ -116,6 +117,7 @@ public class GruntControl : MonoBehaviour
             Destroy(gameObject);
             Destroy(canvas, 0f);
             Destroy(parent, 0f);
+            
             death.Play();
         }
     }
