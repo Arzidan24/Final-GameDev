@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
    [SerializeField] LayerMask jumpableGround;
 
    [SerializeField] Transform attackpoint;
-   [SerializeField] private AudioSource walkSound;
 
    public LayerMask enemyLayers;
 

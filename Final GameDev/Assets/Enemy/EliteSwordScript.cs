@@ -39,6 +39,7 @@ public class EliteSwordScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
        if(other.gameObject.CompareTag("Player")){
+        EliteControl.swordHit.Play();
         other.gameObject.GetComponent<EnemyInteraction>().takedamage(damage);
         Destroy(gameObject);
        } 

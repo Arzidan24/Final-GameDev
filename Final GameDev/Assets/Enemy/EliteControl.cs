@@ -30,6 +30,10 @@ public class EliteControl : MonoBehaviour
     private GameObject player;
     private float timer;
     public GameObject parent;
+    public AudioSource throwSword;
+    public static AudioSource swordHit;
+    public AudioSource death;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +75,7 @@ public class EliteControl : MonoBehaviour
             {
             timer = 0;
             anim.SetTrigger("Attack");
+            throwSword.Play();
             }
         }
         // otherwise, move towards player
@@ -123,6 +128,7 @@ public class EliteControl : MonoBehaviour
              Destroy(gameObject, 0f);
              Destroy(canvas, 0f);
              Destroy(parent, 0f);
+             death.Play();
         }
     }
     public void attack() {

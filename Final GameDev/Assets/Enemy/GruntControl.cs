@@ -24,6 +24,8 @@ public class GruntControl : MonoBehaviour
     public Slider slider;
     public Gradient gradient;
     public Image fill;
+    public AudioSource Gruntatk;
+    public AudioSource Grunthit;
 
     public Canvas canvas;
 
@@ -61,6 +63,7 @@ public class GruntControl : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             anim.SetTrigger("attack");
+            Gruntatk.Play();
         }
         // otherwise, move towards player
         else
@@ -113,6 +116,7 @@ public class GruntControl : MonoBehaviour
             Destroy(gameObject);
             Destroy(canvas, 0f);
             Destroy(parent, 0f);
+            death.Play();
         }
     }
 
