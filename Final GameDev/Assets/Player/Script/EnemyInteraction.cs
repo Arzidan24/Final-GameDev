@@ -32,10 +32,9 @@ public class EnemyInteraction : MonoBehaviour
         
         if (health <= 0f || transform.position.y < minY)
         {
-            isGameOver = true;
-            Time.timeScale = 0f;
             gameOverText.text = "Game Over! Press 'R' to restart!";
-
+            Time.timeScale = 0f;
+            isGameOver = true;
         }
     }
     
@@ -63,9 +62,9 @@ public class EnemyInteraction : MonoBehaviour
         Debug.Log(currenthealth);
         Sethealth();
         if (currenthealth <= 0) {
+            gameOverText.text = "Game Over! Press 'R' to restart!";
             Destroy(gameObject, 0f);
             isGameOver = true;
-            gameOverText.text = "Game Over! Press 'R' to restart!";
         }
     }
     public void Sethealth() {

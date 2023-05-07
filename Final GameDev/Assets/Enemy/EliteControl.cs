@@ -65,7 +65,7 @@ public class EliteControl : MonoBehaviour
         }
 
         // if within attack range, play attack animation
-        if(distanceToPlayer <= 10f){
+        if(distanceToPlayer <= 15f){
             timer += Time.deltaTime;
             if(timer > 3)
             {
