@@ -59,6 +59,8 @@ public class EnemyInteraction : MonoBehaviour
         Sethealth();
         potion.Play();
         Destroy(collison.gameObject, 0f);
+    } else if (collison.gameObject.CompareTag("TreasureChest")) {
+        SceneManager.LoadScene("Mainmenu");
     }
 
 }
