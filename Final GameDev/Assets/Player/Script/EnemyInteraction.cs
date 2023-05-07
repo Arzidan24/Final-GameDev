@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class EnemyInteraction : MonoBehaviour
 {
     public Slider slider;
@@ -12,22 +12,41 @@ public class EnemyInteraction : MonoBehaviour
     public int currenthealth;
     public Image fill;
 
+    public float minY = -95;
+    private bool isGameOver = false;
+    [SerializeField] private TMP_Text gameOverText;
+
     private void Start() {
         currenthealth = health;
         slider.value = currenthealth;
        fill.color =  gradient.Evaluate(1f);
     }
-    [SerializeField] private TMP_Text HealthText;
+
+    void Update()
+    {
+        if (isGameOver && Input.GetKeyDown(KeyCode.R))
+        {
+            gameOverText.text = "";
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        
+        if (health <= 0f || transform.position.y < minY)
+        {
+            isGameOver = true;
+            Time.timeScale = 0f;
+            gameOverText.text = "Game Over! Press 'R' to restart!";
+
+        }
+    }
+    
     private void OnTriggerEnter2D(Collider2D collison) {
     if (collison.gameObject.CompareTag("Enemy"))
     {
         currenthealth = currenthealth - 2;
-        HealthText.text = "Health: " + currenthealth;
     }
     else if(collison.gameObject.CompareTag("Weapon"))
     {
         currenthealth = currenthealth - 2;
-        HealthText.text = "Health: " + currenthealth;
     } else if (collison.gameObject.CompareTag("HealthPotion")){
         currenthealth = currenthealth + 15;
         if(currenthealth > 100) {
@@ -42,10 +61,11 @@ public class EnemyInteraction : MonoBehaviour
         Debug.Log("Hit!");
         currenthealth -= damage;
         Debug.Log(currenthealth);
-        HealthText.text = "Health: " + currenthealth;
         Sethealth();
         if (currenthealth <= 0) {
-             Destroy(gameObject, 0f);
+            Destroy(gameObject, 0f);
+            isGameOver = true;
+            gameOverText.text = "Game Over! Press 'R' to restart!";
         }
     }
     public void Sethealth() {
