@@ -12,6 +12,7 @@ public class EnemyInteraction : MonoBehaviour
     public int currenthealth;
     public Image fill;
     public AudioSource gameOver;
+    public AudioSource potion;
 
     public float minY = -95;
     private bool isGameOver = false;
@@ -56,6 +57,7 @@ public class EnemyInteraction : MonoBehaviour
             currenthealth = 100;
         }
         Sethealth();
+        potion.Play();
         Destroy(collison.gameObject, 0f);
     }
 

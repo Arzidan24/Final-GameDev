@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         }
        if (dirX == 0f)
         {
-            if(Isgrounded()){
+            if(!isJumping){
                 walk.Play();
             }
             else{
@@ -88,6 +88,12 @@ public class PlayerMovement : MonoBehaviour
             }
             anim.SetBool("walk", false);
         }
+        // if (dirX != 0f && !isJumping ){
+        //     walk.Play();
+        //     if (dirX == 0f || isJumping){
+        //         walk.Stop();
+        //     }
+        // }
     }
     private void OnCollisionEnter2D(Collision2D collision)
 {
