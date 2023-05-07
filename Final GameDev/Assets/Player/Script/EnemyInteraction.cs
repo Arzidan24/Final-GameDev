@@ -11,6 +11,7 @@ public class EnemyInteraction : MonoBehaviour
     public int health = 100;
     public int currenthealth;
     public Image fill;
+    public AudioSource gameOver;
 
     public float minY = -95;
     private bool isGameOver = false;
@@ -35,6 +36,9 @@ public class EnemyInteraction : MonoBehaviour
             gameOverText.text = "Game Over! Press 'R' to restart!";
             Time.timeScale = 0f;
             isGameOver = true;
+        }
+        if (isGameOver){
+            gameOver.Play();
         }
     }
     

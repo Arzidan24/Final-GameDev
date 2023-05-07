@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         }
        if (dirX == 0f)
         {
-            if(!Input.GetButtonDown("Jump") && !Isgrounded()){
+            if(Isgrounded()){
                 walk.Play();
             }
             else{

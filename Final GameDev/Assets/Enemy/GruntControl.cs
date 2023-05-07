@@ -117,7 +117,7 @@ public class GruntControl : MonoBehaviour
             Destroy(gameObject);
             Destroy(canvas, 0f);
             Destroy(parent, 0f);
-            
+
             death.Play();
         }
     }
@@ -129,6 +129,7 @@ public class GruntControl : MonoBehaviour
        {
         if(enemy.GetComponent<EnemyInteraction>()){
         enemy.GetComponent<EnemyInteraction>().takedamage(attackdamage);
+        Grunthit.Play();
         }
        }
     }
