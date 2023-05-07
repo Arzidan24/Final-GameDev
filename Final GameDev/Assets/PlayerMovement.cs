@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
    public AudioSource walk;
    public AudioSource punch;
    public AudioSource jump;
+   public AudioSource hit;
 
     // Start is called before the first frame update
    private void Start()
@@ -54,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
          isJumping = true;
          rb.freezeRotation = true;
          anim.SetBool("jump", true);
+         jump.time = 0.15f;
          jump.Play();
       }
       if(!PauseMenu.GameIsPaused){
@@ -79,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         }
        if (dirX == 0f)
         {
-            if(Isgrounded()){
+            if(!Input.GetButtonDown("Jump") && !Isgrounded()){
                 walk.Play();
             }
             anim.SetBool("walk", false);
@@ -108,9 +110,11 @@ public class PlayerMovement : MonoBehaviour
        foreach(Collider2D enemy in hitenemies)
        {
         if(enemy.GetComponent<GruntControl>()){
+        hit.Play();
         enemy.GetComponent<GruntControl>().takedamage(attackdamage);
         }
         else{
+            hit.Play();
             enemy.GetComponent<EliteControl>().takedamage(attackdamage);
         }
        }
