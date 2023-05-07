@@ -29,6 +29,7 @@ public class EliteControl : MonoBehaviour
     public Transform swordPos;
     private GameObject player;
     private float timer;
+    public GameObject parent;
     // Start is called before the first frame update
     void Start()
     {
@@ -121,6 +122,7 @@ public class EliteControl : MonoBehaviour
         if (currenthealth <= 0) {
              Destroy(gameObject, 0f);
              Destroy(canvas, 0f);
+             Destroy(parent, 0f);
         }
     }
     public void attack() {

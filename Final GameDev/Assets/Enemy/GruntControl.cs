@@ -19,6 +19,7 @@ public class GruntControl : MonoBehaviour
     [SerializeField] Transform attackpoint;
     public float attackrange = 1.5f;
     public int attackdamage = 10;
+    public GameObject parent;
 
     public Slider slider;
     public Gradient gradient;
@@ -109,8 +110,9 @@ public class GruntControl : MonoBehaviour
         Debug.Log(currenthealth);
         Sethealth();
         if (currenthealth <= 0) {
-             Destroy(gameObject, 0f);
-             Destroy(canvas, 0f);
+            Destroy(gameObject);
+            Destroy(canvas, 0f);
+            Destroy(parent, 0f);
         }
     }
 
