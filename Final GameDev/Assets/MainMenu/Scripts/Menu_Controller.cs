@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Menu_Controller : MonoBehaviour {
 
@@ -40,6 +41,11 @@ public class Menu_Controller : MonoBehaviour {
 		PlayerPrefs.SetString("_LastScene", scene.name);
 		UnityEngine.SceneManagement.SceneManager.LoadScene(_sceneToLoadOnPlay);
 	}
+
+	public void Tutorial(){
+        _audioSource.PlayOneShot(_audioClip);
+        SceneManager.LoadScene("Level 1");
+    }
 	
 	public void Mute () {
 		_audioSource.PlayOneShot(_audioClip);
