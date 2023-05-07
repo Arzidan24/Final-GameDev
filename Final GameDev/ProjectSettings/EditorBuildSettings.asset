@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/new map.unity
     guid: 3d940bc89a8774748aac112fdf6ce0d4
+  - enabled: 1
+    path: Assets/Scenes/clearLvl.unity
+    guid: 63d7a9728e336204b8bdfd14660998c8
   m_configObjects: {}
