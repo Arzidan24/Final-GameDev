@@ -20,8 +20,10 @@ public class PlayerMovement : MonoBehaviour
 
    public float attackrange = 0.5f;
    public int attackdamage = 10;
-   public AudioSource punch;
    public AudioSource walk;
+   public AudioSource punch;
+   public AudioSource jump;
+
     // Start is called before the first frame update
    private void Start()
     {
@@ -52,24 +54,23 @@ public class PlayerMovement : MonoBehaviour
          isJumping = true;
          rb.freezeRotation = true;
          anim.SetBool("jump", true);
+         jump.Play();
       }
+      if(!PauseMenu.GameIsPaused){
       if (Input.GetButtonDown("Fire1")) {
         punch.Play();
         anim.SetTrigger("attack");
         attack();
-      }
+      }}
        if (isJumping == false)
         {
             anim.SetBool("jump", false);
         }
        if (dirX > 0f)
-        {
+        {   
             anim.SetBool("walk", true);
             transform.rotation = Quaternion.Euler(0f, -180f, 0f);
-            if (isJumping == false)
-        {
-            walkSound.Play();
-        }
+
         }
        if (dirX < 0f)
         {
@@ -78,7 +79,9 @@ public class PlayerMovement : MonoBehaviour
         }
        if (dirX == 0f)
         {
-            walk.Play();
+            if(Isgrounded()){
+                walk.Play();
+            }
             anim.SetBool("walk", false);
         }
     }

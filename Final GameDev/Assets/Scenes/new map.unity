@@ -5577,8 +5577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 369462693}
   - component: {fileID: 369462696}
-  - component: {fileID: 369462695}
-  - component: {fileID: 369462694}
+  - component: {fileID: 369462697}
   m_Layer: 0
   m_Name: _Main
   m_TagString: Untagged
@@ -5601,38 +5600,6 @@ Transform:
   m_Father: {fileID: 353454971}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &369462694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369462692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4983dd8cde2bdb40a151c963af6b151, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 1934414239}
-  _sceneToLoadOnPlay: 
-  _webpageURL: 
-  _soundButtons:
-  - {fileID: 1657986542}
-  - {fileID: 630972577}
-  _audioClip: {fileID: 8300000, guid: 8c3bb00127444c243b4fd6ea295a7d6f, type: 3}
-  _audioSource: {fileID: 369462696}
---- !u!114 &369462695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369462692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b90e00cf84fc3b45a4fe76e3e2f5586, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &369462696
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5729,6 +5696,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &369462697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369462692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3459997cdb60be5459b0ac34bb4eede5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 1934414239}
+  _sceneToLoadOnPlay: 
+  _webpageURL: 
+  _soundButtons:
+  - {fileID: 1657986542}
+  - {fileID: 630972577}
+  _audioClip: {fileID: 8300000, guid: 8c3bb00127444c243b4fd6ea295a7d6f, type: 3}
+  _audioSource: {fileID: 369462696}
 --- !u!1 &373959108
 GameObject:
   m_ObjectHideFlags: 0
@@ -8455,7 +8442,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 369462694}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Mute
         m_Mode: 1
@@ -19712,6 +19699,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1862461633}
     - target: {fileID: 389598084, guid: ce2756e668f69d0488cee9fe083e0a51, type: 3}
+      propertyPath: jumpforce
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 389598084, guid: ce2756e668f69d0488cee9fe083e0a51, type: 3}
+      propertyPath: movespeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 389598084, guid: ce2756e668f69d0488cee9fe083e0a51, type: 3}
+      propertyPath: sprintspeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 389598084, guid: ce2756e668f69d0488cee9fe083e0a51, type: 3}
       propertyPath: attackdamage
       value: 5
       objectReference: {fileID: 0}
@@ -21922,7 +21921,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 369462694}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: GoMenu
         m_Mode: 1
@@ -23238,7 +23237,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 369462694}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -24114,7 +24113,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 369462694}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Unmute
         m_Mode: 1
@@ -24382,7 +24381,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 369462694}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1

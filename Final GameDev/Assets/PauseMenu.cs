@@ -78,6 +78,7 @@ public class PauseMenu : MonoBehaviour
 		_soundButtons[0].interactable = true;
 		_soundButtons[1].interactable = false;
 		PlayerPrefs.SetInt("_Mute", 1);
+        AudioListener.volume = 0;
 	}
 	
 	public void Unmute () {
@@ -85,6 +86,7 @@ public class PauseMenu : MonoBehaviour
 		_soundButtons[0].interactable = false;
 		_soundButtons[1].interactable = true;
 		PlayerPrefs.SetInt("_Mute", 0);
+        AudioListener.volume = 1;
 	}
 	
 	public void QuitGame () {
