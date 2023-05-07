@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
    private Animator anim;
    private BoxCollider2D coll;
    [SerializeField] private float movespeed = 4f;
-   [SerializeField] private float sprintspeed = 16f;
+   [SerializeField] private float sprintspeed = 12f;
    [SerializeField] private float jumpforce = 14f;
    [SerializeField] LayerMask jumpableGround;
 

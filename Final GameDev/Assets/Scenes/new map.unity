@@ -3718,7 +3718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdaa1d95d17fcc04b879c2aaded25f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followSpeed: 2
+  followSpeed: 5
   yOffset: 5
   xOffset: 10
   zOffset: -15
@@ -5545,8 +5545,7 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -2.7957115, y: 0.35207272}
-  - {x: -2.4074478, y: 0.45529562}
+  - {x: -2.739277, y: 0.681285}
   - {x: -2.0494444, y: 0.479792}
   - {x: -1.5697627, y: 0.3934837}
   - {x: -1.0530714, y: 0.35372463}
@@ -5554,9 +5553,8 @@ EdgeCollider2D:
   - {x: 0.117921546, y: 0.3894738}
   - {x: 0.7662883, y: 0.45397878}
   - {x: 3.775052, y: 0.36699873}
-  - {x: 6.782001, y: 0.3265393}
-  - {x: 7.162674, y: 0.216376}
-  - {x: 7.4019017, y: 0.09220362}
+  - {x: 6.8987765, y: 0.5511092}
+  - {x: 7.3480153, y: 0.57727456}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -14773,6 +14771,14 @@ PrefabInstance:
     - target: {fileID: 389598084, guid: ce2756e668f69d0488cee9fe083e0a51, type: 3}
       propertyPath: attackdamage
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 389598084, guid: ce2756e668f69d0488cee9fe083e0a51, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 384
+      objectReference: {fileID: 0}
+    - target: {fileID: 389598084, guid: ce2756e668f69d0488cee9fe083e0a51, type: 3}
+      propertyPath: jumpableGround.m_Bits
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 389598091, guid: ce2756e668f69d0488cee9fe083e0a51, type: 3}
       propertyPath: CoinsCollected
