@@ -20,7 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
    public float attackrange = 0.5f;
    public int attackdamage = 10;
-
+   public AudioSource punch;
+   public AudioSource walk;
     // Start is called before the first frame update
    private void Start()
     {
@@ -53,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
          anim.SetBool("jump", true);
       }
       if (Input.GetButtonDown("Fire1")) {
+        punch.Play();
         anim.SetTrigger("attack");
         attack();
       }
@@ -76,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         }
        if (dirX == 0f)
         {
+            walk.Play();
             anim.SetBool("walk", false);
         }
     }

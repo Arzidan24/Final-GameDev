@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class CameraFollowPlayer : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CameraFollowPlayer : MonoBehaviour
     public float xOffset = 10f;
     public float zOffset = -15f;
     public Transform target;
+    [SerializeField] private TMP_Text gameOverText;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +22,9 @@ public class CameraFollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target == null)
+        if (target == null || target.position.y < -94.5)
         {
+            gameOverText.text = "Game Over! Press 'R' to restart!";
             Time.timeScale = 0f;
             if (Input.GetKeyDown(KeyCode.R))
             {
