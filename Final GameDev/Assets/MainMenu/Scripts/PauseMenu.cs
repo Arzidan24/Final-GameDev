@@ -44,6 +44,15 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
+    void Awake () {
+		if(!PlayerPrefs.HasKey("_Mute")){
+			PlayerPrefs.SetInt("_Mute", 0);
+		}
+		
+		scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+		PlayerPrefs.SetString("_LastScene", scene.name.ToString()); 
+		//Debug.Log(scene.name);
+	}
     public void Resume(){
         _audioSource.PlayOneShot(_audioClip);
         pauseMenuUI.SetActive(false);
