@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
    [SerializeField] LayerMask jumpableGround;
 
    [SerializeField] Transform attackpoint;
+   [SerializeField] private AudioSource walkSound;
 
    public LayerMask enemyLayers;
 
@@ -63,6 +64,10 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("walk", true);
             transform.rotation = Quaternion.Euler(0f, -180f, 0f);
+            if (isJumping == false)
+        {
+            walkSound.Play();
+        }
         }
        if (dirX < 0f)
         {
