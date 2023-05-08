@@ -39374,6 +39374,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 389598083, guid: ce2756e668f69d0488cee9fe083e0a51, type: 3}
+      propertyPath: m_GravityScale
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 389598084, guid: ce2756e668f69d0488cee9fe083e0a51, type: 3}
       propertyPath: hit
       value: 
@@ -39392,7 +39396,7 @@ PrefabInstance:
       objectReference: {fileID: 1862461633}
     - target: {fileID: 389598084, guid: ce2756e668f69d0488cee9fe083e0a51, type: 3}
       propertyPath: jumpforce
-      value: 16
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 389598084, guid: ce2756e668f69d0488cee9fe083e0a51, type: 3}
       propertyPath: movespeed
