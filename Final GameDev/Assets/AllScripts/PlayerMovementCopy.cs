@@ -1,0 +1,139 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+// this script focuses on player movement, attacks
+
+public class PlayerMovementCopy : MonoBehaviour
+{
+   private Rigidbody2D rb;
+   private bool isJumping = false;
+   private Animator anim;
+   private BoxCollider2D coll;
+   [SerializeField] private float movespeed = 4f;
+   [SerializeField] private float sprintspeed = 12f;
+   [SerializeField] private float jumpforce = 14f;
+   [SerializeField] LayerMask jumpableGround;
+
+   [SerializeField] Transform attackpoint;
+
+   public LayerMask enemyLayers;
+
+   public float attackrange = 0.5f; 
+   public int attackdamage = 10;
+   public AudioSource walk;
+   public AudioSource punch;
+   public AudioSource jump;
+   public AudioSource hit;
+
+    // Start is called before the first frame update
+   private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        coll = GetComponent<BoxCollider2D>();
+    }
+
+    // Update is called once per frame
+   private void Update()
+    {
+      float dirX = Input.GetAxisRaw("Horizontal"); // Horizontal Movement
+      bool isSprinting = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
+      if (isSprinting) // Sprint Movement
+      {
+         rb.velocity = new Vector2(dirX * sprintspeed, rb.velocity.y);
+      }
+      else //Walking Movement
+      {
+         rb.velocity = new Vector2(dirX * movespeed, rb.velocity.y);
+      }
+      /*rb.velocity = new Vector2(dirX * movespeed, rb.velocity.y);*/
+
+       if (Input.GetButtonDown("Jump") && Isgrounded()) // Jumping Movement, checks if it is touching the ground
+      {
+         rb.velocity = new Vector2(rb.velocity.x, jumpforce);
+         isJumping = true;
+         rb.freezeRotation = true;
+         anim.SetBool("jump", true);
+         jump.time = 0.15f;
+         jump.Play();
+      }
+      if(!PauseMenu.GameIsPaused){
+      if (Input.GetButtonDown("Fire1")) { //attack 
+        punch.Play();
+        anim.SetTrigger("attack");
+        attack(); // attack is started in the attack animation
+      }}
+       if (isJumping == false)
+        {
+            anim.SetBool("jump", false);
+        }
+       if (dirX > 0f) // rotates the player to the correct direction
+        {   
+            anim.SetBool("walk", true);
+            transform.rotation = Quaternion.Euler(0f, -180f, 0f);
+
+        }
+       if (dirX < 0f) // rotates the player to the correct direction
+        {
+            anim.SetBool("walk", true);
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+       if (dirX == 0f) // idle animation
+        {
+            if(!isJumping){
+                walk.Play();
+            }
+            else{
+                walk.Stop();
+            }
+            anim.SetBool("walk", false);
+        }
+        // if (dirX != 0f && !isJumping ){
+        //     walk.Play();
+        //     if (dirX == 0f || isJumping){
+        //         walk.Stop();
+        //     }
+        // }
+    }
+    private void OnCollisionEnter2D(Collision2D collision) // ground checking, might be unused 
+{
+    if ((jumpableGround & (1 << collision.gameObject.layer)) != 0) // check if the collided object is on the Ground layer
+    {
+        isJumping = false;
+    }
+}
+   public void SetAttackBoolToFalse() // sets attack to false when atttack animation is over
+    {
+        anim.SetBool("attack", false);
+    }
+
+    private bool Isgrounded() // checks if the player is touching the ground
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+    }
+
+    public void attack() { // player attack logic, attacks all enemies in range and gets their take damage function to deal damage to them
+       Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackpoint.position, attackrange, enemyLayers);
+
+       foreach(Collider2D enemy in hitenemies)
+       {
+        if(enemy.GetComponent<GruntControl>()){
+        hit.Play();
+        enemy.GetComponent<GruntControl>().takedamage(attackdamage);
+        }
+        else{
+            hit.Play();
+            enemy.GetComponent<EliteControl>().takedamage(attackdamage);
+        }
+       }
+    }
+
+    void OnDrawGizmosSelected() { // to display attack range, debug only
+        if (attackpoint == null) 
+            return;
+
+       Gizmos.DrawWireSphere(attackpoint.position, attackrange);
+    }
+}

@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 // Text for the tutorial level, displays text after the player has reached a certain range
-public class PlayerTutorial : MonoBehaviour
+public class PlayerTutorialCopy : MonoBehaviour
 {
     private int tutorialscompleted = 0;
     public Transform target;
